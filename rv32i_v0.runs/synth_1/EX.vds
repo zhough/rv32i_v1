@@ -1,0 +1,235 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Mar 16 23:36:56 2026
+# Process ID         : 14076
+# Current directory  : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/synth_1
+# Command line       : vivado.exe -log EX.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EX.tcl
+# Log file           : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/synth_1/EX.vds
+# Journal file       : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/synth_1\vivado.jou
+# Running On         : ZHOU-1
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11260H @ 2.60GHz
+# CPU Frequency      : 2611 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16893 MB
+# Swap memory        : 16893 MB
+# Total Virtual      : 33786 MB
+# Available Virtual  : 13234 MB
+#-----------------------------------------------------------
+source EX.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 600.910 ; gain = 221.461
+Command: synth_design -top EX -part xc7a100tfgg484-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 27224
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1141.418 ; gain = 535.543
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'tmp_target', assumed default net type 'wire' [E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/EX.v:44]
+INFO: [Synth 8-6157] synthesizing module 'EX' [E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/EX.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'EX' (0#1) [E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/EX.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1259.492 ; gain = 653.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1259.492 ; gain = 653.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-2
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1259.492 ; gain = 653.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1259.492 ; gain = 653.617
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input    1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3917] design EX has port jump_target[31] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[30] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[29] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[28] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[27] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[26] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[25] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[24] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[23] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[22] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[21] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[20] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[19] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[18] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[17] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[16] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[15] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[14] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[13] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[12] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[11] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[10] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[9] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[8] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[7] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[6] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[5] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[4] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[3] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[2] driven by constant 0
+WARNING: [Synth 8-3917] design EX has port jump_target[1] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1509.707 ; gain = 903.832
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1518.559 ; gain = 912.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1518.559 ; gain = 912.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    42|
+|2     |LUT1   |    31|
+|3     |LUT2   |    15|
+|4     |LUT3   |    33|
+|5     |LUT4   |   115|
+|6     |LUT5   |   100|
+|7     |LUT6   |   341|
+|8     |IBUF   |   105|
+|9     |OBUF   |    98|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   880|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 31 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1704.746 ; gain = 1098.871
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1718.781 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 42 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1833.660 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 3bf27954
+INFO: [Common 17-83] Releasing license: Synthesis
+15 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1833.660 ; gain = 1232.750
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1833.660 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/Vivado_code/rv32i_v0/rv32i_v0.runs/synth_1/EX.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file EX_utilization_synth.rpt -pb EX_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 16 23:37:30 2026...

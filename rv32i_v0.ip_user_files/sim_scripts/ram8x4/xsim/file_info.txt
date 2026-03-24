@@ -1,0 +1,2 @@
+ram8x4.v,verilog,xil_defaultlib,../../../../rv32i_v0.gen/sources_1/ip/ram8x4/sim/ram8x4.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

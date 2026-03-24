@@ -1,0 +1,20 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.gen/sources_1/ip/irom_test/sim/irom_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module irom_test
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/EX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/ID.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/IF.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/LOAD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LOAD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/STORE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module STORE
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sources_1/new/WB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sim_1/new/top1_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top1_tb
+WARNING: [VRFC 10-3380] identifier 'wb_result' is used before its declaration [E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sim_1/new/top1_tb.v:211]
+WARNING: [VRFC 10-3380] identifier 'wb_result' is used before its declaration [E:/Vivado_code/rv32i_v0/rv32i_v0.srcs/sim_1/new/top1_tb.v:213]
