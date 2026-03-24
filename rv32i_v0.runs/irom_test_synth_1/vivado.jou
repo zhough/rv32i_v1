@@ -3,22 +3,22 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Tue Mar 24 00:41:37 2026
-# Process ID         : 13736
-# Current directory  : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/irom_test_synth_1
+# Start of session at: Tue Mar 24 19:32:54 2026
+# Process ID         : 1892
+# Current directory  : D:/Vavido_code/rv32i_v1/rv32i_v0.runs/irom_test_synth_1
 # Command line       : vivado.exe -log irom_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source irom_test.tcl
-# Log file           : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/irom_test_synth_1/irom_test.vds
-# Journal file       : E:/Vivado_code/rv32i_v0/rv32i_v0.runs/irom_test_synth_1\vivado.jou
-# Running On         : ZHOU-1
+# Log file           : D:/Vavido_code/rv32i_v1/rv32i_v0.runs/irom_test_synth_1/irom_test.vds
+# Journal file       : D:/Vavido_code/rv32i_v1/rv32i_v0.runs/irom_test_synth_1\vivado.jou
+# Running On         : asu
 # Platform           : Windows Server 2016 or Windows 10
-# Operating System   : 26200
-# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11260H @ 2.60GHz
-# CPU Frequency      : 2611 MHz
-# CPU Physical cores : 6
-# CPU Logical cores  : 12
-# Host memory        : 16893 MB
-# Swap memory        : 16893 MB
-# Total Virtual      : 33786 MB
-# Available Virtual  : 6845 MB
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 8745HS w/ Radeon 780M Graphics     
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 33599 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 35746 MB
+# Available Virtual  : 19493 MB
 #-----------------------------------------------------------
 source irom_test.tcl -notrace

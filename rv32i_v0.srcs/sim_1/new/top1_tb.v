@@ -149,7 +149,7 @@ begin
     end
     else begin
         //curr_pc_if <= next_pc_if;
-        if (is_LAR_if) curr_pc_if = curr_pc_if - 4;
+        if (is_LAR_if) curr_pc_if = curr_pc_if;
         else begin
             curr_pc_if = next_pc_if;
         end 
@@ -158,22 +158,48 @@ end
 //==============================
 
 //译码
-reg [31:0] curr_pc_id_reg;
+reg [31:0] curr_pc_id_reg, curr_pc_id_reg2;
+reg is_LAR_reg;
+reg jump_taken_reg, branch_taken_reg;
+wire [31:0] ins_if;
+reg [31:0] dout_irom_reg;
+assign ins_if = (is_LAR_reg) ? dout_irom_reg : 
+                (jump_taken_reg | branch_taken_reg) ? 32'b0 : dout_irom;
 always @(posedge clk or negedge rst_n)
 begin
     if (!rst_n) begin
         ins <= 32'b0;
         curr_pc_id <= 32'b0;
         curr_pc_id_reg <= 32'b0;
+        curr_pc_id_reg2 <= 32'b0;
+        is_LAR_reg <= 1'b0;
+        jump_taken_reg <= 1'b0;
+        branch_taken_reg <= 1'b0;
+        dout_irom_reg <= 32'b0;
     end
     else begin
+        is_LAR_reg <= is_LAR_if;
+        dout_irom_reg <= dout_irom;
+        jump_taken_reg <= jump_taken_if;
+        branch_taken_reg <= branch_taken_if;
         if(~is_LAR_if) begin
-            ins <= dout_irom;
-            curr_pc_id_reg <= curr_pc_if;
-            curr_pc_id <= curr_pc_id_reg;
+            if(jump_taken_if | branch_taken_if) begin
+                ins <= 32'b0;
+                curr_pc_id <= 32'b0;
+                curr_pc_id_reg <= 32'b0;
+                curr_pc_id_reg2 <= 32'b0;
+            end
+            else begin
+                ins <= ins_if;
+                curr_pc_id_reg2 <= curr_pc_if;
+                curr_pc_id_reg <= curr_pc_id_reg2;
+                curr_pc_id <= curr_pc_id_reg;
+                //curr_pc_id <= curr_pc_if;
+            end
         end
         else begin
             ins <= ins;
+            curr_pc_id_reg2 <= curr_pc_id_reg2;
             curr_pc_id_reg <= curr_pc_id_reg;
             curr_pc_id <= curr_pc_id;
         end
@@ -204,25 +230,45 @@ begin
         is_auipc_ex <= 1'b0;
     end
     else begin
-        alu_op_ex <= alu_op_id;
-        alu_src_ex <= alu_src_id;
-        //数据旁路选择分支
-        a_ex <= (is_WAR1) ? rs_result :
-                (is_WAR1_last) ? wb_result : rs [rs1_id];   //这种情况包含load-x-read
-        b_ex <= (is_WAR2) ? rs_result :
-                (is_WAR2_last) ? wb_result : rs [rs2_id];
-        rs2_ex <= rs2_id;
-        imm_ex <= imm_id;
-        jump_en_ex <= jump_en_id;
-        branch_en_ex <= branch_en_id;
-        is_jalr_ex <= is_jalr_id;
-        pc_ex <= curr_pc_id;
-        not_wb_ex <= not_wb_id;
-        load_op_ex <= load_op_id;
-        store_op_ex <= store_op_id;
-        rd_ex <= rd_id;
-        is_lui_ex <= is_lui_id;
-        is_auipc_ex <= is_auipc_id;
+        if (~is_LAR & ~(jump_taken_if | branch_taken_if)) begin
+            alu_op_ex <= alu_op_id;
+            alu_src_ex <= alu_src_id;
+            //数据旁路选择分支
+            a_ex <= (is_WAR1) ? rs_result :
+                    (is_WAR1_last) ? wb_result : rs [rs1_id];   //这种情况包含load-x-read
+            b_ex <= (is_WAR2) ? rs_result :
+                    (is_WAR2_last) ? wb_result : rs [rs2_id];
+            rs2_ex <= rs2_id;
+            imm_ex <= imm_id;
+            jump_en_ex <= jump_en_id;
+            branch_en_ex <= branch_en_id;
+            is_jalr_ex <= is_jalr_id;
+            pc_ex <= curr_pc_id;
+            not_wb_ex <= not_wb_id;
+            load_op_ex <= load_op_id;
+            store_op_ex <= store_op_id;
+            rd_ex <= rd_id;
+            is_lui_ex <= is_lui_id;
+            is_auipc_ex <= is_auipc_id;
+        end
+        else begin
+            alu_op_ex <= 4'b0;
+            alu_src_ex <= 1'b0;
+            a_ex <= 32'b0;
+            b_ex <= 32'b0;
+            imm_ex <= 32'b0;
+            jump_en_ex <= 1'b0;
+            branch_en_ex <= 1'b0;
+            is_jalr_ex <= 1'b0;
+            pc_ex <= 32'b0;
+            not_wb_ex <= 1'b1;
+            load_op_ex <= 3'b111;
+            store_op_ex <= 3'b111;
+            rd_ex <= 5'b0;
+            rs2_ex <= 5'b0;
+            is_lui_ex <= 1'b0;
+            is_auipc_ex <= 1'b0;
+        end
     end
 end
 //写回

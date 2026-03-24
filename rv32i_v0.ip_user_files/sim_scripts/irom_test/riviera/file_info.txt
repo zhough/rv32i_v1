@@ -1,5 +1,5 @@
-xpm_memory.sv,systemverilog,xpm,E:/Xilinx/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
-xpm_VCOMP.vhd,vhdl,xpm,E:/Xilinx/2025.2/Vivado/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
-blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_12,../../../ipstatic/simulation/blk_mem_gen_v8_4.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
-irom_test.v,verilog,xil_defaultlib,../../../../rv32i_v0.gen/sources_1/ip/irom_test/sim/irom_test.v,incdir="../../../../../../Xilinx/2025.2/Vivado/data/rsb/busdef"
+xpm_memory.sv,systemverilog,xpm,D:/Xilinx1/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../../../Xilinx1/2025.2/Vivado/data/rsb/busdef"
+xpm_VCOMP.vhd,vhdl,xpm,D:/Xilinx1/2025.2/Vivado/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../../../Xilinx1/2025.2/Vivado/data/rsb/busdef"
+blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_12,../../../ipstatic/simulation/blk_mem_gen_v8_4.v,incdir="../../../../../../Xilinx1/2025.2/Vivado/data/rsb/busdef"
+irom_test.v,verilog,xil_defaultlib,../../../../rv32i_v0.gen/sources_1/ip/irom_test/sim/irom_test.v,incdir="../../../../../../Xilinx1/2025.2/Vivado/data/rsb/busdef"
 glbl.v,Verilog,xil_defaultlib,glbl.v
