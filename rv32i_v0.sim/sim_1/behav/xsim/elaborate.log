@@ -1,11 +1,11 @@
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: D:/Xilinx1/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top1_tb_behav xil_defaultlib.top1_tb xil_defaultlib.glbl -log elaborate.log 
+Running: E:/Xilinx/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top1_tb_behav xil_defaultlib.top1_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'we' [D:/Vavido_code/rv32i_v1/rv32i_v0.srcs/sim_1/new/top1_tb.v:327]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'we' [E:/Vivado_code/rv32i_v1/rv32i_v0.srcs/sim_1/new/top1_tb.v:330]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -21,6 +21,8 @@ Compiling module xil_defaultlib.EX
 Compiling module xil_defaultlib.WB
 Compiling module xil_defaultlib.LOAD
 Compiling module xil_defaultlib.STORE
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="ar...
 Compiling module xil_defaultlib.blk_mem_gen_0

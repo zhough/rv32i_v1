@@ -1,20 +1,20 @@
-INS     ID编写      ID验证
-ADD     完成        完成       
-SUB     完成        完成       
-SLL     完成        完成
+INS     ID编写      ID验证  riscv-tests
+ADD     完成        完成        ok
+SUB     完成        完成        
+SLL     完成        完成        
 SLT     完成        完成
 SLTU    完成        /
 XOR     完成        /
 SRL     完成        /
 SRA     完成        /
 OR      完成        /
-AND     完成        /
-ADDI    完成        完成
+AND     完成        /           ok
+ADDI    完成        完成        ok
 SLTI    完成        /
 SLTIU   完成        /
 XORI    完成        /
 ORI     完成        /
-ANDI    完成        /
+ANDI    完成        /           ok
 SLLI    完成        完成
 SRLI    完成        完成
 SRAI    完成        完成
@@ -27,7 +27,7 @@ BGEU    完成        /
 JAL     完成        完成
 JALR    完成        完成
 LUI     完成        完成
-AUIPC   完成        /
+AUIPC   完成        /           ok
 LB      完成        完成
 LH      完成        /
 LW      完成        /

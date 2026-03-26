@@ -16,7 +16,7 @@ initial begin
 end
 
 //==================== irom_test instance start ================
-wire [7:0] pc_irom;
+wire [10:0] pc_irom;
 wire [31:0] dout_irom;
 
 irom_test u_irom(
@@ -141,7 +141,7 @@ assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0)) ? 1'b1 : 1'b0;
 assign is_LAR_if = is_LAR;
 assign is_LAR = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & is_load) ? 1'b1 : 1'b0;
 //取指
-assign pc_irom = irom_addr_if [9:2];
+assign pc_irom = irom_addr_if [12:2];
 always @(posedge clk or negedge rst_n)
 begin
     if (!rst_n) begin
@@ -182,26 +182,29 @@ begin
         dout_irom_reg <= dout_irom;
         jump_taken_reg <= jump_taken_if;
         branch_taken_reg <= branch_taken_if;
+        curr_pc_id_reg2 <= curr_pc_if;
+        curr_pc_id_reg <= curr_pc_id_reg2;
+        curr_pc_id <= curr_pc_id_reg;
         if(~is_LAR_if) begin
             if(jump_taken_if | branch_taken_if) begin
                 ins <= 32'b0;
-                curr_pc_id <= 32'b0;
-                curr_pc_id_reg <= 32'b0;
-                curr_pc_id_reg2 <= 32'b0;
+                // curr_pc_id <= 32'b0;
+                // curr_pc_id_reg <= 32'b0;
+                // curr_pc_id_reg2 <= 32'b0;
             end
             else begin
                 ins <= ins_if;
-                curr_pc_id_reg2 <= curr_pc_if;
-                curr_pc_id_reg <= curr_pc_id_reg2;
-                curr_pc_id <= curr_pc_id_reg;
+                // curr_pc_id_reg2 <= curr_pc_if;
+                // curr_pc_id_reg <= curr_pc_id_reg2;
+                // curr_pc_id <= curr_pc_id_reg;
                 //curr_pc_id <= curr_pc_if;
             end
         end
         else begin
             ins <= ins;
-            curr_pc_id_reg2 <= curr_pc_id_reg2;
-            curr_pc_id_reg <= curr_pc_id_reg;
-            curr_pc_id <= curr_pc_id;
+            // curr_pc_id_reg2 <= curr_pc_id_reg2;
+            // curr_pc_id_reg <= curr_pc_id_reg;
+            // curr_pc_id <= curr_pc_id;
         end
     end
 end
@@ -362,4 +365,8 @@ assign wb_result = is_load_mem ? load_data_out : rs_result_mem;
 wire [31:0] rs1 = rs[1];
 wire [31:0] rs2 = rs[2];
 wire [31:0] rs3 = rs[3];
+wire [31:0] rs17 = rs[17];
+wire [31:0] rs5 = rs[5];
+wire [31:0] rs6 = rs[6];
+
 endmodule

@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Mar 24 21:37:13 2026
+# Process ID         : 26100
+# Current directory  : E:/Vivado_code/rv32i_v1
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent27468 E:\Vivado_code\rv32i_v1\rv32i_v0.xpr
+# Log file           : E:/Vivado_code/rv32i_v1/vivado.log
+# Journal file       : E:/Vivado_code/rv32i_v1\vivado.jou
+# Running On         : ZHOU-1
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11260H @ 2.60GHz
+# CPU Frequency      : 2611 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16893 MB
+# Swap memory        : 16893 MB
+# Total Virtual      : 33786 MB
+# Available Virtual  : 16220 MB
+#-----------------------------------------------------------
+start_gui
+open_project E:/Vivado_code/rv32i_v1/rv32i_v0.xpr
+update_compile_order -fileset sources_1
