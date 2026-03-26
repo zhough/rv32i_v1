@@ -314,28 +314,35 @@ assign jump_target_if = jump_target_ex;
 wire [3:0] we;
 wire [31:0] ram_dout;
 wire [31:0] load_data_out;
-wire [7:0] dram_addr;
-
+wire [11:0] dram_addr;
+reg [1:0] alu_result_mem_low2;
+wire [1:0] alu_result_ex_low2;
+wire [31:0] ram_din;
+assign alu_result_ex_low2 = alu_result_ex[1:0];
 assign we = is_store ? we_store : 4'b0;
-assign dram_addr = alu_result_ex[9:2];
+assign dram_addr = alu_result_ex[13:2];
 
 LOAD u_load(
     .load_op (load_op_mem),
     .load_data_in (ram_dout),
+    .addr_low2 (alu_result_mem_low2),
     .load_data_out (load_data_out)
 );
 
 STORE u_store(
     .store_op (store_op_ex),
+    .addr_low2 (alu_result_ex_low2),
+    .rs_data (rs[rs2_ex]),
+    .ram_din (ram_din),
     .we (we_store)
 );
 
-blk_mem_gen_0 dram(
+blk_mem_gen_1 dram(
     .clka (clk),
     .ena (1'b1),
     .wea (we),
     .addra (dram_addr),
-    .dina (rs[rs2_ex]),
+    .dina (ram_din),
     .douta (ram_dout)
 );
 
@@ -349,6 +356,7 @@ begin
         rd_mem <= 5'b0;
         is_load_mem <= 1'b0;
         is_store_mem <= 1'b0;
+        alu_result_mem_low2 <= 2'b0;
     end
     else begin
         load_op_mem <= load_op_ex;
@@ -357,6 +365,7 @@ begin
         rd_mem <= rd_ex;
         is_load_mem <= is_load;
         is_store_mem <= is_store;
+        alu_result_mem_low2 <= alu_result_ex_low2;
     end
 end
 assign wb_result = is_load_mem ? load_data_out : rs_result_mem;
