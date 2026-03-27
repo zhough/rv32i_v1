@@ -16,7 +16,7 @@ initial begin
 end
 
 //==================== irom_test instance start ================
-wire [10:0] pc_irom;
+wire [12:0] pc_irom;
 wire [31:0] dout_irom;
 
 irom_test u_irom(
@@ -27,11 +27,6 @@ irom_test u_irom(
 
 //==================== IF module instance start ================
 
-// reg jump_taken_if;
-// reg [31:0] jump_target_if;
-// reg branch_taken_if;
-// reg [31:0] branch_target_if;
-//改为wire
 wire jump_taken_if;
 wire [31:0] jump_target_if;
 wire branch_taken_if;
@@ -141,7 +136,7 @@ assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0)) ? 1'b1 : 1'b0;
 assign is_LAR_if = is_LAR;
 assign is_LAR = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & is_load) ? 1'b1 : 1'b0;
 //取指
-assign pc_irom = irom_addr_if [12:2];
+assign pc_irom = irom_addr_if [14:2];
 always @(posedge clk or negedge rst_n)
 begin
     if (!rst_n) begin
@@ -311,20 +306,26 @@ assign jump_target_if = jump_target_ex;
 
 
 //mem
-wire [3:0] we;
-wire [31:0] ram_dout;
+wire [3:0] we, we_store;
+wire [31:0] ram_dout, load_data_in;
 wire [31:0] load_data_out;
 wire [11:0] dram_addr;
+reg [11:0] last_dram_addr;
 reg [1:0] alu_result_mem_low2;
+reg [31:0] last_store_data;
 wire [1:0] alu_result_ex_low2;
 wire [31:0] ram_din;
+wire is_SAL;    //store after laod标志位
+assign dram_addr = alu_result_ex[13:2];
+assign is_SAL = (is_store_mem & is_load & (dram_addr == last_dram_addr));   //load和上一条store指令操作同一地址
+assign load_data_in = is_SAL ? last_store_data : ram_dout;
 assign alu_result_ex_low2 = alu_result_ex[1:0];
 assign we = is_store ? we_store : 4'b0;
-assign dram_addr = alu_result_ex[13:2];
+
 
 LOAD u_load(
     .load_op (load_op_mem),
-    .load_data_in (ram_dout),
+    .load_data_in (load_data_in),
     .addr_low2 (alu_result_mem_low2),
     .load_data_out (load_data_out)
 );
@@ -357,6 +358,8 @@ begin
         is_load_mem <= 1'b0;
         is_store_mem <= 1'b0;
         alu_result_mem_low2 <= 2'b0;
+        last_dram_addr <= 12'b0;
+        last_store_data <= 32'b0;
     end
     else begin
         load_op_mem <= load_op_ex;
@@ -366,6 +369,8 @@ begin
         is_load_mem <= is_load;
         is_store_mem <= is_store;
         alu_result_mem_low2 <= alu_result_ex_low2;
+        last_dram_addr <= dram_addr;
+        last_store_data <= ram_din;
     end
 end
 assign wb_result = is_load_mem ? load_data_out : rs_result_mem;

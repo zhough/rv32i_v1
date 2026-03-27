@@ -203,7 +203,7 @@ always @(*) begin
             load_op_reg = funct3;
         end 
 
-        7'b0100111: begin   //store(S-type)
+        7'b0100011: begin   //store(S-type)
             imm_reg = {{20{imms[11]}},imms};
             alu_src_reg = 1'b1;
             jump_en_reg = 1'b0;

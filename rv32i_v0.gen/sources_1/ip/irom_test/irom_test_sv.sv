@@ -56,7 +56,7 @@ module irom_test_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   input wire clka,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire [10:0] addra,
+  input wire [12:0] addra,
   (* X_INTERFACE_IGNORE = "true" *)
   output wire [31:0] douta
 );

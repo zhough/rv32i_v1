@@ -56,7 +56,7 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 irom_test your_instance_name (
   .clka(clka),    // input wire clka
-  .addra(addra),  // input wire [10 : 0] addra
+  .addra(addra),  // input wire [12 : 0] addra
   .douta(douta)  // output wire [31 : 0] douta
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

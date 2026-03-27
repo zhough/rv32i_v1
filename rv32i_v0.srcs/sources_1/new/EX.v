@@ -29,13 +29,13 @@ always @(*) begin
         4'b0110 : result = a << alu_b[4:0];     //逻辑左移
         4'b0111 : result = a >> alu_b[4:0];     //逻辑右移
         4'b1000 : result = $signed(a) >>> alu_b[4:0];   //有符号数算术右移
-        4'b1001 : result = ($signed(a) < $signed(alu_b)) ? 32'b1 : 32'b0;   //有符号数比较小于
-        4'b1010 : result = (a < alu_b) ? 32'd1 : 32'd0;   //无符号数比较小于
-        4'b1011 : result = (a == alu_b) ?  32'd1 : 32'd0;
-        4'b1100 : result = (a != alu_b) ?  32'd1 : 32'd0;
-        4'b1101 : result = ($signed(a) >= $signed(alu_b)) ? 32'd1 : 32'd0; //有符号数比较大于等于
-        4'b1110 : result = (a >= alu_b) ? 32'd1 : 32'd0;    //无符号数比较大于等于
-        default : result = 32'd0;
+        4'b1001 : result = ($signed(a) < ($signed(alu_b))) ? 32'b1 : 32'b0;   //有符号数比较小于
+        4'b1010 : result = (a < alu_b) ? 32'b1 : 32'b0;   //无符号数比较小于
+        4'b1011 : result = (a == alu_b) ?  32'b1 : 32'b0;
+        4'b1100 : result = (a != alu_b) ?  32'b1 : 32'b0;
+        4'b1101 : result = ($signed(a) >= ($signed(alu_b))) ? 32'b1 : 32'b0; //有符号数比较大于等于
+        4'b1110 : result = (a >= alu_b) ? 32'b1 : 32'b0;    //无符号数比较大于等于
+        default : result = 32'b0;
     endcase
 end
 

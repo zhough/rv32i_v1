@@ -2,10 +2,10 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-// Date        : Thu Mar 26 14:34:46 2026
+// Date        : Thu Mar 26 14:34:45 2026
 // Host        : asu running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               d:/Vavido_code/rv32i_v1/rv32i_v0.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top blk_mem_gen_1 -prefix
+//               blk_mem_gen_1_ blk_mem_gen_1_stub.v
 // Design      : blk_mem_gen_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tfgg484-2
