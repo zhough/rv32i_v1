@@ -80,7 +80,10 @@ always @(*) begin
                 10'b0100000101: alu_op_reg = 4'b1000;  //SRA
                 10'b0000000010: alu_op_reg = 4'b1001;  //SLT
                 10'b0000000011: alu_op_reg = 4'b1010;  //SLTU
-                default : alu_op_reg = 4'b0000;         //无效
+                default : begin
+                    not_wb_reg = 1'b1;
+                    alu_op_reg = 4'b0000;         //无效
+                end
             endcase
         end
 
@@ -107,7 +110,10 @@ always @(*) begin
                 
                 3'b001: alu_op_reg = (funct7==7'b0000000) ? 4'b0110 : 4'b0000;  //SLLI
                 3'b101: alu_op_reg = (funct7==7'b0000000) ? 4'b0111 : (funct7==7'b0100000) ? 4'b1000 : 4'b0000; //SRLI or SRAI
-                default: alu_op_reg = 4'b0000;
+                default: begin
+                    alu_op_reg = 4'b0000;
+                    not_wb_reg <= 1'b1;
+                end
             endcase
         end
 

@@ -1,4 +1,0 @@
-ERROR: Exception caught trying to open file E:\Vivado_code\rv32i_v1\rv32i_v0.runs\irom_test_synth_1/runme.log
-	Exception name: Error
-	Exception error code: 70
-	Exception message: 没有权限

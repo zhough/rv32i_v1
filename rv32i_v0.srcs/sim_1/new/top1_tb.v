@@ -129,12 +129,12 @@ assign is_store_id = ~(&store_op_id);
 assign is_load = ~(&load_op_ex);
 assign is_store = ~(&store_op_ex);
 reg is_load_mem, is_store_mem;
-assign is_WAR1 = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & (~is_load)) ? 1'b1 : 1'b0;
-assign is_WAR2 = ((rd_ex == rs2_id) & (rd_ex != 5'b0) & (~is_load)) ? 1'b1 : 1'b0;
-assign is_WAR1_last = ((rd_mem == rs1_id) & (rd_mem != 5'b0)) ? 1'b1 : 1'b0;    //包含了load-x-read类型
-assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0)) ? 1'b1 : 1'b0;
+assign is_WAR1 = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & (~is_load) & (~not_wb_ex)) ? 1'b1 : 1'b0;
+assign is_WAR2 = ((rd_ex == rs2_id) & (rd_ex != 5'b0) & (~is_load) & (~not_wb_ex)) ? 1'b1 : 1'b0;
+assign is_WAR1_last = ((rd_mem == rs1_id) & (rd_mem != 5'b0) & (~not_wb_mem)) ? 1'b1 : 1'b0;    //包含了load-x-read类型
+assign is_WAR2_last = ((rd_mem == rs2_id) & (rd_mem != 5'b0) & (~not_wb_mem)) ? 1'b1 : 1'b0;
 assign is_LAR_if = is_LAR;
-assign is_LAR = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & is_load) ? 1'b1 : 1'b0;
+assign is_LAR = ((rd_ex == rs1_id) & (rd_ex != 5'b0) & is_load & (~not_wb_ex)) ? 1'b1 : 1'b0;
 //取指
 assign pc_irom = irom_addr_if [14:2];
 always @(posedge clk or negedge rst_n)
@@ -313,15 +313,19 @@ wire [11:0] dram_addr;
 reg [11:0] last_dram_addr;
 reg [1:0] alu_result_mem_low2;
 reg [31:0] last_store_data;
+reg [31:0] rs_result_mem;
+reg is_WAR2_reg;
 wire [1:0] alu_result_ex_low2;
 wire [31:0] ram_din;
+wire [31:0] store_data_in;
 wire is_SAL;    //store after laod标志位
-assign dram_addr = alu_result_ex[13:2];
+//地址偏移
+assign dram_addr = alu_result_ex[13:2] -12'h800;
 assign is_SAL = (is_store_mem & is_load & (dram_addr == last_dram_addr));   //load和上一条store指令操作同一地址
 assign load_data_in = is_SAL ? last_store_data : ram_dout;
 assign alu_result_ex_low2 = alu_result_ex[1:0];
 assign we = is_store ? we_store : 4'b0;
-
+assign store_data_in = is_WAR2_reg ? rs_result_mem : rs[rs2_ex];
 
 LOAD u_load(
     .load_op (load_op_mem),
@@ -333,7 +337,7 @@ LOAD u_load(
 STORE u_store(
     .store_op (store_op_ex),
     .addr_low2 (alu_result_ex_low2),
-    .rs_data (rs[rs2_ex]),
+    .rs_data (store_data_in),
     .ram_din (ram_din),
     .we (we_store)
 );
@@ -347,7 +351,6 @@ blk_mem_gen_1 dram(
     .douta (ram_dout)
 );
 
-reg [31:0] rs_result_mem;
 always @(posedge clk or negedge rst_n)
 begin
     if (!rst_n) begin
@@ -360,6 +363,7 @@ begin
         alu_result_mem_low2 <= 2'b0;
         last_dram_addr <= 12'b0;
         last_store_data <= 32'b0;
+        is_WAR2_reg <= 1'b0;
     end
     else begin
         load_op_mem <= load_op_ex;
@@ -371,6 +375,7 @@ begin
         alu_result_mem_low2 <= alu_result_ex_low2;
         last_dram_addr <= dram_addr;
         last_store_data <= ram_din;
+        is_WAR2_reg <= is_WAR2;
     end
 end
 assign wb_result = is_load_mem ? load_data_out : rs_result_mem;
@@ -380,7 +385,8 @@ wire [31:0] rs1 = rs[1];
 wire [31:0] rs2 = rs[2];
 wire [31:0] rs3 = rs[3];
 wire [31:0] rs17 = rs[17];
+wire [31:0] rs10 = rs[10];
+wire [31:0] rs4 = rs[4];
 wire [31:0] rs5 = rs[5];
-wire [31:0] rs6 = rs[6];
 
 endmodule
